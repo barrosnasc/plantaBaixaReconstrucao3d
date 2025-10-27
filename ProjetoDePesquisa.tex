@@ -1,0 +1,400 @@
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% MODELO DE PROJETO DE PESQUISA - UESPI
+% ------------------------------------------------------------------------
+% 
+
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág. ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+% ---
+% Pacotes básicos 
+% ---
+%\usepackage{lmodern}			% Usa a fonte Latin Modern	
+\usepackage{mathptmx}
+\renewcommand{\ABNTEXchapterfont}{\normalfont}
+%\usepackage{bookman}		
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+
+\usepackage{subcaption} %subcaptions em subfigures
+
+\usepackage{epigraph}
+
+%Depois no documento escrevemos:
+
+%\epigraph{texto}{referência}
+
+
+%\usepackage{geometry}
+%\geometry{a4paper, left=3cm, right=2cm, bottom=2cm, top=3cm}
+% ---
+\graphicspath{ {./figs/} }
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% Pacotes adicionais ++
+\usepackage{listings}
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+
+%%%%%comandos para revisão
+\newcommand{\supervisor}[1]{\textcolor{red}{[#1]}}
+
+\newcommand{\aluno}[1]{\textcolor{blue}{[#1]}}
+
+
+%================================================================================
+% Pacote para criacao da lista de siglas e abreviaturas
+%================================================================================
+\usepackage{nomencl}
+\makeatletter
+\setlength{\nomlabelwidth}{0.15\hsize} 
+\renewcommand{\nomlabel}[1]{#1 \hfill}
+\setlength{\nomitemsep}{-.05in} 
+\makenomenclature
+% Traduz o titulo da lista de abreviaturas
+\renewcommand{\nomname}{Lista de Abreviaturas e Siglas}
+
+% Comando para criacao de abreviaturas e siglas
+\def\sigla{\@ifstar\@sigla\@@sigla}
+% Apenas faz o registro na tabela de siglas
+\def\@sigla#1#2{\nomenclature{#1}{#2}}          % \sigla*{}{} 
+% Faz o registro na tabela de siglas e insere os dados no corpo do documento
+\def\@@sigla#1#2{#2 (#1)\nomenclature{#1}{#2}}  % \sigla{}{}
+\makeatother
+%%%%%%%%%%%
+%%%Lista de quadros
+
+
+\usepackage{float}
+\floatstyle{plaintop} % Coloca caption no topo
+\newfloat{quadro}{htbp}{lop}
+\floatname{quadro}{Quadro}
+\newcommand{\listofquadros}{\listof{quadro}{Lista de Quadros}}
+\def\quadroautorefname{Quadro}
+%%%Lista de quadros
+
+
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Geração de Modelo 3D a partir de Planta Baixa 2D}
+\autor{João Pedro Barros do Nascimento}
+\local{Teresina}
+\data{2025}
+\orientador{Carlos Giovanni Nunes de Carvalho}
+\instituicao{Universidade Estadual do Piauí}
+\tipotrabalho{Projeto de Pesquisa (Graduação)}
+
+% O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição e a área de concentração 
+\preambulo{Pré-projeto de Trabalho de Conclusão de Curso apresentado na Universidade Estadual do Piauí – UESPI como parte dos requisitos para conclusão do Curso de Bacharelado em Ciência da Computação.}
+
+
+
+% Configurações de aparência do PDF final
+%\definecolor{blue}{RGB}{41,5,195}
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true:              colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4}
+
+\makeatother
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% --------------------------------------------------------------------------------------------------------
+% % Início do documento
+% --------------------------------------------------------------------------------------------------------
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+%%capa
+% Capa
+% A capa no projeto de pesquisa é opcional
+%---------------------------------------------------------------------------------------------------------
+
+    \begin{center}
+    {\ABNTEXchapterfont\large UNIVERSIDADE ESTADUAL DO PIAUÍ}\\
+    {\ABNTEXchapterfont\large CIÊNCIA DA COMPUTAÇÃO}
+    
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\large \imprimirautor}  
+    \vspace*{\fill}
+   
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+    \ABNTEXchapterfont \bfseries \Large \imprimirtitulo
+    \end{center}
+    \vspace*{\fill}\vspace*{\fill}
+   
+  
+   \end{center}  
+
+      
+    \begin{center}
+    \vspace*{0.5cm}
+    {\ABNTEXchapterfont\large TERESINA}
+    \par
+    {\ABNTEXchapterfont\large \imprimirdata}
+    \vspace*{1cm}
+    \end{center}
+%--------------------------------------------------x------------------------------------------------------
+
+%%
+
+
+
+% Folha de Rosto
+% --------------------------------------------------------------------------------------------------------
+\begin{folhaderosto}
+
+  \begin{center}
+    {\ABNTEXchapterfont\large \imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large \imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    
+    \vspace{1.5cm}
+    Orientador: \imprimirorientador \\
+    
+    \vspace*{\fill}
+     
+   \end{center}  
+
+     \begin{center}
+    \vspace*{0.5cm}
+    {\ABNTEXchapterfont\large TERESINA}
+    \par
+    {\ABNTEXchapterfont\large \imprimirdata}
+    \vspace*{1cm}
+    \end{center}
+  
+\end{folhaderosto}
+%--------------------------------------------------x----------------------------------------
+
+% Resumo
+%---------------------------------------------------------------------------------------------------------
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}
+\ABNTEXchapterfont
+No seu resumo de projeto de pesquisa você deve em um paragrafo contínuo apresentar, de forma concisa e informativa, o tema, os objetivos da pesquisa, a metodologia a ser utilizada, os principais resultados que espera alcançar, tudo em um parágrafo único e no tempo verbal adequado para cada parte. O resumo deve seguir a NBR 6028 da \sigla{ABNT}{Associacao Brasileira de Normas Tecnicas}, ser escrito em terceira pessoa, sem recuos na primeira linha, e ser acompanhado de palavras-chave que representem o conteúdo da monografia. 
+
+\textbf{Palavras-chaves}: Planta baixa; Geração 3D; 3D .
+\end{resumo}
+%--------------------------------------------------x------------------------------------------------------
+
+
+% Abstract
+%---------------------------------------------------------------------------------------------------------
+\begin{resumo}[Abstract]
+\ABNTEXchapterfont
+In the Computer Science course, introductory subjects play a crucial role in the development of student knowledge, expanding their theoretical base and enhancing essential skills for problem-solving. Among these skills, data analysis, manipulation, and treatment stand out, which are acquired through the Database subject and are fundamental for obtaining and processing information. Despite the proven importance of Database concepts, it is noted that students face challenges, such as demotivation resulting from the exhausProtive learning process, which can affect focus, proactivity, and the acquisition of necessary knowledge. Given these challenges, it becomes essential to adopt alternative teaching approaches that can mitigate the students theoretical deficiencies. Gamification, which incorporates game design elements in non-playful environments, can be used to increase student engagement, encouraging them to perform tasks and achieve pre-established objectives. In this context, the main objective of this project is to develop a framework that defines design metrics based on gamification elements, aiming at the effective construction of gamified teaching applications focused on teaching the concepts of Relational Database and SQL language.
+
+% \begin{otherlanguage*}{english}
+%   This is the english abstract.
+%   \vspace{\onelineskip}
+%   \noindent 
+
+\textbf{Keywords}: Gamification; Relational Database; Teaching Framework.
+\end{resumo}
+%--------------------------------------------------x------------------------------------------------------
+
+
+% inserir lista de ilustrações
+%---------------------------------------------------------------------------------------------------------
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+%--------------------------------------------------x------------------------------------------------------
+
+
+% inserir lista de tabelas
+%---------------------------------------------------------------------------------------------------------
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+%--------------------------------------------------x------------------------------------------------------
+
+
+% inserir lista de abreviaturas e siglas
+%-------------------------------------------------------------------------------------------
+% para inserir as  abreviaturas e siglas use no texto o comando \sigla{SIGLA}{DEFINICAO DA SIGLA}a primeira vez que for definir a sigla 
+%---------------------------------------------------------------------------------------------------------
+\printnomenclature
+\cleardoublepage
+%--------------------------------------------------x------------------------------------------------------
+
+%%%Lista de codigos
+% Inclui a lista de códigos
+%\incluilistadecodigos
+
+
+
+%%Lista de quadros
+\pdfbookmark[0]{\listtablename}{lot}
+\listofquadros
+\cleardoublepage
+
+%--------------------------------------------------x------------------------------------------------------
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+\textual
+%--------------------------------------------------x------------------------------------------------------
+\input{2_capitulos_tex/1_Introducao}
+%--------------------------------------------------x------------------------------------------------------
+\input{2_capitulos_tex/2_Referencial}
+ % Desenvolvimento %
+%---------------------------------------------------------------------------------------------------------
+\input{2_capitulos_tex/3_RevisaoLiteraria}
+%--------------------------------------------------x------------------------------------------------------
+
+ % Conclusões e Trabalhos Futuros %
+%---------------------------------------------------------------------------------------------------------
+\input{2_capitulos_tex/4_PropostaDePesquisa}
+%--------------------------------------------------x------------------------------------------------------
+
+%--------------------------------------------------x-----------------------------------------------------
+
+%--------------------------------------------------x-----------------------------------------------------
+
+
+%--------------------------------------------------x-----------------------------------------------------
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+%{Referencias Bibliograficas}
+%---------------------------------------------------------------------------------------------------------
+\bibliography{biblio.bib}
+\printindex
+
+% ---------------------------------------------------------------------
+    % GLOSSÁRIO
+    % --------------------------------------------------------------------- 
+    % Arquivo que contém as definições que vão aparecer no glossário
+    %\input{tex/glossario}
+    % Comando para incluir todas as definições do arquivo glossario.tex
+    %\glsaddall
+    % Impressão do glossário
+    %\printglossaries
+
+    % ----------------------------------------------------------
+    % Apêndices
+    % ----------------------------------------------------------
+    
+    % ---
+    % Inicia os apêndices
+    % ---
+   % \apendices{
+    %    \chapter{References Set}
+    %    \label{apendice:setinicial}
+    %    \input{trabRelacionados}
+
+   % }
+    % ---
+    
+
+    % ----------------------------------------------------------
+    % Anexos
+    % ----------------------------------------------------------
+    
+    % ---
+    % Inicia os anexos
+    % ---
+    %\anexos{
+    
+    
+    %\begin{anexosenv}
+    
+        
+    %\end{anexosenv}
+    %}
+    % ---
+
+
+\end{document}
