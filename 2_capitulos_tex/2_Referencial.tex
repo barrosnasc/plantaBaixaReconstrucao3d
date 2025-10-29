@@ -7,11 +7,16 @@
 
 % Qual é o tipo de problema
 % Utilizando o artigo do 3DPlanNet
-O desenho arquitetônico descreve vários tipos de objetos: parede, portas, janela, quartos, dimensões escritas no documento, nome do cômodo, entre outros, que é então escaneado para gerar um imagem digital que o algoritmo precisa processar e transformar em uma estrutura de dados que seja capaz de manipular.
+O desenho arquitetônico  contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
+, essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real, nas construções. A transferência do desenho arquitetônico para o a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma, onde não é mais possível utilizar a mesma planta baixa para gerar um resultado diferente, é então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
 
-Antes os problemas que conversão gera foram solucionados por algoritmos heurísticos, mas que atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
+Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, o documento será digitalizado depois será processado e para gerar uma estrutura de dados que seja capaz de manipular, no caso desse projeto os dados serão transformados em um modelo 3D.
 
-Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas. A técnica de \cite{3dplanet2021} se mostra interessante por conseguir com 30 imagens anotadas gerar um modelo que \cite{kratochvila2024multi} diz é uma das técnicas de estado da arte.
+O processamento da imagem gera alguns problemas sendo solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
+
+Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas.
+
+A técnica de \cite{3dplanet2021} se mostra interessante por conseguir com 30 imagens anotadas gerar um modelo que \cite{kratochvila2024multi} diz é uma das técnicas de estado da arte.
 
 % Ajudar com base na literatura que ainda existe na 
 

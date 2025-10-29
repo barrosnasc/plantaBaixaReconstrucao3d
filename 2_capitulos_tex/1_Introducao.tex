@@ -27,22 +27,23 @@
 
 % Escrita
 % Premissa: Há uma necessidade de utilizar gerar modelos 3D a partir de plantas 2D
-A recuperação do modelo arquitetônico,\sigla{BIM}{Building Informational Model}, a partir de um planta baixa é uma necessidade que arquitetos e designers precisam para modificar e alterar o projeto \cite{lv2021residential}, pois todos os projetos atuais \iffalse achismo sem referencia \fi são feitos com um auxilio do computador.
-Além disso, há a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
+A recuperação do modelo arquitetônico,\sigla{BIM}{Building Informational Model}, a partir de um planta baixa é uma necessidade que arquitetos e designers precisam para modificar e alterar o projeto \cite{lv2021residential}, atualmente os projetos \iffalse achismo sem referencia \fi são feitos com o auxilio do computador conhecido como \sigla{CAD}{Computer Aided Design}.
+Há também a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
 
 
 \section{Objetivos}\label{cp:intro:obj}
 Considerando a contextualização apresentada, nessa seção temos os objetivos gerais e específicos desse projeto de pesquisa.
 
 \subsection{Objetivo Geral}\label{cp:intro:objgeral}
-Desenvolver uma programa para gerar uma modelo 3D através de uma imagem de uma planta baixa de acordo com técnicas de processamento de imagem e detecção de característica. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
+Desenvolver uma programa para gerar uma modelo 3D através de uma imagem de uma planta baixa de acordo com técnicas de processamento de imagem e detecção de característica que foram utilizadas nos artigos de referência. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
 
 \subsection{Objetivos Específicos}\label{cp:intro:objespec}
 \begin{itemize}
-  \item Revisão bibliográfica melhor entender as técnicas das referências, já que não está disponível o código fonte e com base na revisão recriar a arquitetura.
-  \item Treinar o modelo de acordo com a literatura e os datasets. % Datasets como o CubiCasa5K.
+  \item Revisão bibliográfica.
+  % , para melhor entender as técnicas das referências, já que não está disponível o código fonte e com base na revisão recriar a arquitetura.
+  \item Treinar o modelo de acordo com os datasets da literatura. % Datasets como o CubiCasa5K.
   \item Coletar das plantas baixas para serem processadas. % Digitalizar as plantas baixas disponíveis de Teresina.
-  \item Gerar modelos 3D a partir das plantas baixas. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$
+  \item Fazer a inferência do modelo com as plantas baixas e a gerar o modelo 3D. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$
   \item Exibir o modelo 3D gerado.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
 \end{itemize}
 

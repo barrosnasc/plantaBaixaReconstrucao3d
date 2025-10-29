@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex ProjetoDePesquisa"] 1761527515 "ProjetoDePesquisa.aux" "ProjetoDePesquisa.bbl" "ProjetoDePesquisa" 1761527586 0
+["bibtex ProjetoDePesquisa"] 1761779000 "ProjetoDePesquisa.aux" "ProjetoDePesquisa.bbl" "ProjetoDePesquisa" 1761780668 0
   "./abntex2-alf.bst" 1761537632 60675 db2a4768d85086bbf88c225397134abf ""
-  "./biblio.bib" 1761537632 5150 53ae34029e6d8754a177db4e7c683486 ""
+  "./biblio.bib" 1761597031 5200 e22e960bf197a86bf7b6cb80a0cadef9 ""
   "/usr/local/texlive/2022/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1357081713 5396 4eb260dac60f150ae608d45252853090 ""
-  "ProjetoDePesquisa.aux" 1761527586 14357 ea10257c34840ba4b1a503d4571bed35 "pdflatex"
+  "ProjetoDePesquisa.aux" 1761780668 14529 3a64a817a1c8bd89e4171424b520743a "pdflatex"
   (generated)
   "ProjetoDePesquisa.bbl"
   "ProjetoDePesquisa.blg"
   (rewritten before read)
-["makeindex ProjetoDePesquisa.idx"] 1761527010 "ProjetoDePesquisa.idx" "ProjetoDePesquisa.ind" "ProjetoDePesquisa" 1761527586 0
-  "ProjetoDePesquisa.idx" 1761527585 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex ProjetoDePesquisa.idx"] 1761527010 "ProjetoDePesquisa.idx" "ProjetoDePesquisa.ind" "ProjetoDePesquisa" 1761780668 0
+  "ProjetoDePesquisa.idx" 1761780668 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "ProjetoDePesquisa.ilg"
   "ProjetoDePesquisa.ind"
   (rewritten before read)
-["pdflatex"] 1761527585 "ProjetoDePesquisa.tex" "ProjetoDePesquisa.pdf" "ProjetoDePesquisa" 1761527586 0
+["pdflatex"] 1761780667 "ProjetoDePesquisa.tex" "ProjetoDePesquisa.pdf" "ProjetoDePesquisa" 1761780668 0
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -155,19 +155,19 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1673827891 4623355 58034c3eb7ddf7eacc726a83d01e26d2 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1673827946 7874790 f63e3f049964f407602d8d59d640346d ""
   "/usr/local/texlive/2022/texmf.cnf" 1673827850 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "2_capitulos_tex/1_Introducao.tex" 1761537632 5356 c21449dc09ee832c5835701a599cde99 ""
-  "2_capitulos_tex/2_Referencial.tex" 1761527585 2487 f91fe3553f7067a04dbdf54927ae451d ""
-  "2_capitulos_tex/3_RevisaoLiteraria.tex" 1761537632 3235 0f96f37694687bb2651337910e965f68 ""
+  "2_capitulos_tex/1_Introducao.tex" 1761765232 5481 64f69ce5d31b29331673098371bfa9ef ""
+  "2_capitulos_tex/2_Referencial.tex" 1761780667 3266 6b949dd56649acdd86350ea53a596e50 ""
+  "2_capitulos_tex/3_RevisaoLiteraria.tex" 1761765741 3201 f6ea398f426276b527400d646eb65c35 ""
   "2_capitulos_tex/4_PropostaDePesquisa.tex" 1761537632 1970 f4bd7b107497710d19bbea574f9787d7 ""
-  "ProjetoDePesquisa.aux" 1761527586 14357 ea10257c34840ba4b1a503d4571bed35 "pdflatex"
-  "ProjetoDePesquisa.bbl" 1761527515 1191 e1fde4d9483b425d9d39468425320bc2 "bibtex ProjetoDePesquisa"
-  "ProjetoDePesquisa.brf" 1761527586 354 ec77df658e0e3796ab1500cc5458b686 "pdflatex"
+  "ProjetoDePesquisa.aux" 1761780668 14529 3a64a817a1c8bd89e4171424b520743a "pdflatex"
+  "ProjetoDePesquisa.bbl" 1761779000 1191 e1fde4d9483b425d9d39468425320bc2 "bibtex ProjetoDePesquisa"
+  "ProjetoDePesquisa.brf" 1761780668 446 bc6916c96ff2fb4d5e51aba6cebc1b17 "pdflatex"
   "ProjetoDePesquisa.ind" 1761527010 0 d41d8cd98f00b204e9800998ecf8427e "makeindex ProjetoDePesquisa.idx"
-  "ProjetoDePesquisa.lof" 1761527586 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
-  "ProjetoDePesquisa.lop" 1761527586 284 b62263016ab7fb245f4267fe722c32c1 "pdflatex"
+  "ProjetoDePesquisa.lof" 1761780668 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
+  "ProjetoDePesquisa.lop" 1761780668 284 b62263016ab7fb245f4267fe722c32c1 "pdflatex"
   "ProjetoDePesquisa.nls" 0 -1 0 ""
   "ProjetoDePesquisa.tex" 1761537632 14762 d2c0b7c8a498c37323de95f93877718c ""
-  "ProjetoDePesquisa.toc" 1761527586 2418 1332b2a85f014f0ca035d49727a40c5b "pdflatex"
+  "ProjetoDePesquisa.toc" 1761780668 2418 1332b2a85f014f0ca035d49727a40c5b "pdflatex"
   "Tabelas/TabelaBuscaSistematica.tex" 1761537632 482 243f5c8670527d32550f1d7540942027 ""
   (generated)
   "ProjetoDePesquisa.aux"
