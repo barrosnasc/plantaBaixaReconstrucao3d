@@ -1,1 +1,19 @@
-ProjetoDePesquisa.synctex.gz
+todo
+# localleaf
+*.aux
+*.pdf
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lop
+*.nlo
+*.synctex.gz
+*.toc
+
