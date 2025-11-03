@@ -10,13 +10,20 @@
 O desenho arquitetônico  contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
 , essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real, nas construções. A transferência do desenho arquitetônico para o a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma, onde não é mais possível utilizar a mesma planta baixa para gerar um resultado diferente, é então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
 
-Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, o documento será digitalizado depois será processado e para gerar uma estrutura de dados que seja capaz de manipular, no caso desse projeto os dados serão transformados em um modelo 3D.
+Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, através do processamento de imagem extraindo os seus objetos e características para o ambiente virtual , o documento será digitalizado depois será processado para gerar uma estrutura de dados que seja capaz de manipular, além disso nesse projeto os dados serão transformados em um modelo 3D.
 
-O processamento da imagem gera alguns problemas sendo solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
+O processamento da imagem gera alguns problemas sendo que antes foram solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
 
 Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas.
 
 A técnica de \cite{3dplanet2021} se mostra interessante por conseguir com 30 imagens anotadas gerar um modelo que \cite{kratochvila2024multi} diz é uma das técnicas de estado da arte.
+
+O \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos.
+
+O \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan".
+
+% Página 9 "EXPERIMENTS AND ANALYSIS" 
+O \cite{yang2022automated} utiliza o dataset R2V e  R3D  e plantas de casa de Beike% Site de casas www.ke.com
 
 % Ajudar com base na literatura que ainda existe na 
 
