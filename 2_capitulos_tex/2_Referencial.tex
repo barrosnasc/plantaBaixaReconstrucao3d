@@ -8,7 +8,7 @@
 % Qual é o tipo de problema
 % Utilizando o artigo do 3DPlanNet
 
-Como já citado o  desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
+Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
 mas cada autor escolheu por ênfase em algum desses aspectos.
 
 O processamento da imagem gera alguns problemas sendo que antes foram solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
@@ -18,11 +18,15 @@ Um dos problemas que isso gera é a necessidade da criação de datasets devidam
 \subsection{Datasets}
 Aqui está uma lista com cada autor e o seus datasets que foram utilizados:
 \begin{itemize}
-    \item \cite{3dplanet2021} utiliza dataset próprio de 30 imagens.
-    \item \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan" composto de 7000 imagens.
+    \item \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos, que contém 5000 mil imagens de plantas residenciais da Finlândia.
     \item \cite{yang2022automated}  utiliza o dataset R2V\cite{R2V_ICCV_2017} e  R3D\cite{R3D_2015_CVPR} e plantas de casa de Beike.% Site de casas www.ke.com Página 9 "EXPERIMENTS AND ANALYSIS" 
-    \item \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos.
+    \item \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan" composto de 7000 imagens.
+    \item \cite{3dplanet2021} utiliza dataset próprio de 30 imagens.
 \end{itemize}
+
+O CubiCasa5K foi desenvolvido na Finlândia, então há anotações como banco de sauna, lareira, banheira, chaminé. %  'Sauna bench', 'Fire Place', 'Bathtub', 'Chimney'
+O Residential Floor Plan \cite{lv2021residential} foi desenvolvido na China, dando enfase na detecção de escala, região de interesse. 
+O \cite{R2V_ICCV_2017}
 
 % Utilizar o resumo/conclusão de cada artigo, e discutir sobre os métodos e os achados e comentar sobre os artigos mostrando que ainda há algo a ser feito 
 
