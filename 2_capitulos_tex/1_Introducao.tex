@@ -32,27 +32,28 @@ A recuperação do modelo arquitetônico a partir de um planta baixa é uma nece
 Há também a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
 
 O desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
-, essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real nas construções ou em simulações. A transferência do desenho arquitetônico para o a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma % , onde não é mais possível utilizar a mesma planta baixa 
-é então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
+, essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real nas construções ou em simulações. A transferência do desenho arquitetônico para a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma. % , onde não é mais possível utilizar a mesma planta baixa 
+É então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
 
 % transição de somente a extração de características do modelo 2D para um modelo CAD funcional para o modelo 3D, o que se ganha ao fazer esse tipo de transfomação
 
-Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, através do processamento de imagem extraindo os seus objetos e características para o ambiente virtual, o documento será digitalizado depois será processado para gerar uma estrutura de dados que seja capaz de manipular, além disso nesse projeto os dados serão transformados em um modelo 3D.
+Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, através do processamento de imagem extraindo os seus objetos e características para o ambiente virtual, o documento será digitalizado depois será processado para gerar uma estrutura de dados que seja capaz de manipular, e depois será transformado em um modelo 3D.
 
-As primeiras técnicas de processamento de imagem para extrair características de plantas baixas utilizava de algoritmos heurísticos para poder extrair as informações da imagem com o avanço da ciência se tornou percebeu que técnicas de aprendizagem profunda tem um desempenho melhor \cite{lv2021residential}. Essas novas técnicas precisam de datasets para poder treinar o modelo de predição, existe datasets como o CubiCasa5K \cite{cubiCasa5K} que foi feito a partir de plantas baixas residenciais da Finlândia.
+As primeiras técnicas de processamento de imagem para extrair características de plantas baixas utilizava de algoritmos heurísticos para poder extrair as informações da imagem, com o avanço da ciência se tornou percebeu que técnicas de aprendizagem profunda tem um desempenho melhor \cite{lv2021residential}. Essas novas técnicas precisam de datasets para poder treinar o modelo de predição, como o CubiCasa5K \cite{cubiCasa5K} com 5 mil imagens foi feito utilizando plantas baixas residenciais da Finlândia.
 
 \section{Objetivos}\label{cp:intro:obj}
 Considerando a contextualização apresentada, nessa seção temos os objetivos gerais e específicos desse projeto de pesquisa.
 
 \subsection{Objetivo Geral}\label{cp:intro:objgeral}
-Desenvolver uma programa para gerar uma modelo 3D através de uma imagem de uma planta baixa de acordo com técnicas de processamento de imagem e detecção de característica que foram utilizadas nos artigos de referência. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
+Desenvolver uma programa utilizando técnicas de processamento de imagem e detecção de simbolos que foram utilizadas no artigos nos artigos de referência para gerar uma estrutura de dados que depois será utilizada para gerar um modelo 3D. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
 
 \subsection{Objetivos Específicos}\label{cp:intro:objespec}
 \begin{itemize}
   \item Revisão bibliográfica.
-  % , para melhor entender as técnicas das referências, já que não está disponível o código fonte e com base na revisão recriar a arquitetura.
+  % , para melhor entender as técnicas das referências, já que não está disponível o código fonte e com base na revisão recriar a arquitetura.\
+  \item Escolher a arquitetura a ser utilizada.
   \item Treinar o modelo de acordo com os datasets da literatura. % Datasets como o CubiCasa5K.
-  \item Coletar das plantas baixas para serem processadas. % Digitalizar as plantas baixas disponíveis de Teresina.
+  \item Coletar das novas plantas baixas para serem processadas. % Digitalizar as plantas baixas disponíveis de Teresina.
   \item Fazer a inferência do modelo com as plantas baixas e a gerar o modelo 3D. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$
   \item Exibir o modelo 3D gerado.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
 \end{itemize}
