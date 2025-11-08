@@ -27,19 +27,20 @@
 
 % Escrita
 % Premissa: Há uma necessidade de utilizar gerar modelos 3D a partir de plantas 2D
-A recuperação do modelo arquitetônico a partir de um planta baixa é uma necessidade que arquitetos e designers precisam para modificar e alterar o projeto \cite{lv2021residential}.
-%, atualmente os projetos \iffalse achismo sem referencia \fi são feitos com o auxilio do computador conhecido como \sigla{CAD}{Computer Aided Design}.
-Há também a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
 
 O desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
 , essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real nas construções ou em simulações. A transferência do desenho arquitetônico para a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma. % , onde não é mais possível utilizar a mesma planta baixa 
+
 É então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
+A recuperação do modelo arquitetônico a partir de um planta baixa é uma necessidade que arquitetos e designers precisam para modificar e alterar o projeto \cite{lv2021residential}.
+%, atualmente os projetos \iffalse achismo sem referencia \fi são feitos com o auxilio do computador conhecido como \sigla{CAD}{Computer Aided Design}.
 
-% transição de somente a extração de características do modelo 2D para um modelo CAD funcional para o modelo 3D, o que se ganha ao fazer esse tipo de transfomação
+Há também a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
+% transição de somente a extração de características do modelo 2D para um modelo CAD funcional para o modelo 3D, o que se ganha ao fazer esse tipo de transfomação?
+Na ausência de um modelo virtual do desenho arquitetônico poderá fazer a sua reconstrução, podendo ser manual ou através do processamento de imagem. 
+Nesse projeto será utilizará o processamento de imagem, que irá extrair os objetos e características para o ambiente virtual do documento digitalizado, depois será processado para gerar uma estrutura de dados que seja capaz de manipular, e depois será transformado em um modelo 3D \cite{yang2022automated}.
 
-Caso não tenha o modelo virtual do desenho arquitetônico será necessário fazer a sua reconstrução, através do processamento de imagem extraindo os seus objetos e características para o ambiente virtual, o documento será digitalizado depois será processado para gerar uma estrutura de dados que seja capaz de manipular, e depois será transformado em um modelo 3D.
-
-As primeiras técnicas de processamento de imagem para extrair características de plantas baixas utilizava de algoritmos heurísticos para poder extrair as informações da imagem, com o avanço da ciência se tornou percebeu que técnicas de aprendizagem profunda tem um desempenho melhor \cite{lv2021residential}. Essas novas técnicas precisam de datasets para poder treinar o modelo de predição, como o CubiCasa5K \cite{cubiCasa5K} com 5 mil imagens foi feito utilizando plantas baixas residenciais da Finlândia.
+As primeiras técnicas de processamento de imagem para extrair características de plantas baixas utilizava de algoritmos heurísticos para poder extrair as informações da imagem, com o avanço da ciência se tornou percebeu que técnicas de aprendizagem profunda possuem um desempenho melhor \cite{lv2021residential}. Essas novas técnicas precisam de datasets para poder treinar o modelo de predição, como o CubiCasa5K \cite{cubiCasa5K} com 5 mil imagens foi feito utilizando plantas baixas residenciais da Finlândia.
 
 \section{Objetivos}\label{cp:intro:obj}
 Considerando a contextualização apresentada, nessa seção temos os objetivos gerais e específicos desse projeto de pesquisa.
