@@ -8,31 +8,23 @@
 % Qual é o tipo de problema
 % Utilizando o artigo do 3DPlanNet
 
-Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
-mas cada autor escolheu por ênfase em algum desses aspectos.
+Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões, entre outros, cada autor escolheu por ênfase em algum desses aspectos. Utilizando a divisão de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, cada técnica é dividido em duas etapas: reconhecimento e reconstrução, reconhecimento é onde ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é o pós-processamento e a criação do modelo 3D, com os elementos bases de paredes, portas e janelas.
 
-\section{Trabalhos Encontrados}
+No reconhecimento há a detecção de paredes, portas e janelas, onde é criada uma rede de vértices e arestas das paredes, também pode haver detecção dos outros tipos de objetos, depente do autor.
+Na reconstrução é feita o pós-processamento para diminuir o erro, é então criado o modelo 3d usando tamanhos padrões para os objetos, como altura e largura da parede, caso a técnica tenha detectados objetos na etapa anterior serão adicionados no modelo 3d. Nenhum dos trabalhos citados tem o código fonte disponível.
 
-%Diferentes autores escolheram focar em características diferentes do desenho arquitetônico.
+\section{Trabalhos Relacionados}
 
-%Diferentes autores utilizaram diferentes técnicas.
-
-%Diferentes autores utilizaram hardwares diferentes para fazer o treinamento.
-
-%Utilizando a divisão de \citeonline{kratochvila2024multi}, cada técnica cada autor é dividido em duas etapas: reconhecimento e reconstrução. Reconhecimento é onde ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é a criação do modelo 3D.
-
-\citeonline{kratochvila2024multi} desenvolveu dois algoritmos de segmentação CAB1 e CAB2, que utiliza \textit{Attention Mechanism} que é composto por \textit{Channel attention module} e \textit{Spatial attention module}. Na etapa de reconstrução vetorizou cada categoria de pixel segmentados e gerou o modelo 3D. Utilizou o 560 imagens escolhidas do dataset CubiCasa5K. \autoref{fig:kratochvila2024} mostra a visão geral do próprio autor.
-
-
-
-% colocar a figura do artigo
-
-\citeonline{3dplanet2021} utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. Utilizou a api do Tensorflow para a detecção de objetos: tipo de cômodo, portas e janelas. Utilizou 30 imagens escolhidas aleatoriamente providas do dataset de \citeonline{ijgi9020065} que contém 110,000 imagens.
-
-% colocar a figura do artigo
+\citeonline{kratochvila2024multi} desenvolveu dois algoritmos de segmentação CAB1 e CAB2, que utiliza \textit{Attention Mechanism} composto por \textit{Channel attention module} e \textit{Spatial attention module}. Na etapa de reconstrução, vetorizou cada categoria de pixel segmentados e gerou o modelo 3D. Utilizou o 560 imagens escolhidas do dataset CubiCasa5K. \autoref{fig:kratochvila2024} mostra a visão geral do próprio autor.
 
 \citeonline{lv2021residential}. Faz da detecção de área de interesse, texto e de simbolos (móveis, pias) YOLOv4 \cite{bochkovskiy2020yolov4}.
-Calcula o tamanho da escala do desenho, enquanto outros como o \cite{3dplanet2021} utilizada de um tamanho padrão.Utilizou dataset próprio \sigla{RPF}{Residential Floor Plan} com 7000 imagens de residencias chinesas. \autoref{fig:lv2021} mostra a visão geral do autor.
+Calcula o tamanho da escala do desenho, pixel por mm , enquanto outros como o \cite{3dplanet2021} utilizada de um tamanho padrão.Utilizou dataset próprio %\sigla{RPF}{Residential Floor Plan}
+ com 7000 imagens de residencias chinesas. \autoref{fig:lv2021} mostra a visão geral do autor.
+
+\citeonline{barreiro2023automatic}.De acordo com o autor, focar somente em paredes, portas e janelas, pois as anotações do tipo de cômodo é muito específico de cada dataset e não pode ser generalizada. A sequência de ações é: detecção de simbolos para detectar portas e janelas, segmentação de paredes utilizando arquitetura FPN com o backbone ResNet similar ao \cite{lv2021residential}.
+
+\citeonline{3dplanet2021}, citado por \citeonline{kratochvila2024multi}, utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. Utilizou a api do Tensorflow para a detecção de objetos: tipo de cômodo, portas e janelas. Utilizou 30 imagens escolhidas aleatoriamente providas do dataset de \citeonline{ijgi9020065} que contém 110,000 imagens.
+
 
 \begin{figure}[H]
 \centering
@@ -51,8 +43,29 @@ Calcula o tamanho da escala do desenho, enquanto outros como o \cite{3dplanet202
   \label{fig:lv2021}
 \end{subfigure}
 \legend{Fonte: (a) \cite{kratochvila2024multi}, p. 5; (b) \cite{lv2021residential}, p. 16719.}
-\label{fig:comparacao_arquiteturas}
+\label{fig:arquiteturas1}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Arquiteturas de Barreiro et al., (2023), e Park; Kim, (2021)}
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/barreiro2023automatic_figure1.png}
+  \caption{Da direita para esquerda, planta baixa, mascara segmentada, resultados vetorizados, modelo 3d }
+  \label{fig:barreiro2023automatic}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/3dplanet2021_figure1.png}
+  \caption{Lv et al. (2021)}
+  \label{fig:3dplanet2021}
+\end{subfigure}
+\legend{Fonte: (a) \cite{barreiro2023automatic}, p. 3; (b) \cite{3dplanet2021}, p. 3.}
+\label{fig:arquiteturas2}
+\end{figure}
+
 
 \end
 
@@ -60,20 +73,7 @@ Calcula o tamanho da escala do desenho, enquanto outros como o \cite{3dplanet202
 
 % O processamento da imagem gera alguns problemas sendo que antes foram solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
 
-
 % Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas.
-
-% \subsection{Datasets}
-% Aqui está uma lista com cada autor e o seus datasets que foram utilizados:
-% \begin{itemize}
-%     \item \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos, que contém 5000 mil imagens de plantas residenciais da Finlândia.
-%     \item \cite{yang2022automated}  utiliza o dataset R2V\cite{R2V_ICCV_2017} e  R3D\cite{R3D_2015_CVPR} e plantas de casa de Beike.% Site de casas www.ke.com Página 9 "EXPERIMENTS AND ANALYSIS" 
-%     \item \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan" composto de 7000 imagens.
-%     \item \cite{3dplanet2021} utiliza dataset próprio de 30 imagens.
-% \end{itemize}
-% O CubiCasa5K foi desenvolvido na Finlândia, então há anotações como banco de sauna, lareira, banheira, chaminé. %  'Sauna bench', 'Fire Place', 'Bathtub', 'Chimney'
-% O Residential Floor Plan \cite{lv2021residential} foi desenvolvido na China, dando enfase na detecção de escala, região de interesse. 
-% O \cite{R2V_ICCV_2017}
 
 % Utilizar o resumo/conclusão de cada artigo, e discutir sobre os métodos e os achados e comentar sobre os artigos mostrando que ainda há algo a ser feito 
 
@@ -81,4 +81,4 @@ Calcula o tamanho da escala do desenho, enquanto outros como o \cite{3dplanet202
 % sugestão de tabelinha de como comparar as diferentes soluções ajuda consideravelmente no entendimento do trabalho
 
 \section{Considerações Finais}
-Se necessário escreva consideracoes finais e faça o link com o que será visto no proximo capítulo
+Os trabalhos analisados utilizam de técnicas de processamento de imagem e de reconstrução 3d, mas falta a disponibilização do código fonte e dos datasets utilizados, o que dificulta a sua reprodução.
