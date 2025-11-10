@@ -11,22 +11,69 @@
 Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
 mas cada autor escolheu por ênfase em algum desses aspectos.
 
-O processamento da imagem gera alguns problemas sendo que antes foram solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
+\section{Trabalhos Encontrados}
 
-Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas.
+%Diferentes autores escolheram focar em características diferentes do desenho arquitetônico.
 
-\subsection{Datasets}
-Aqui está uma lista com cada autor e o seus datasets que foram utilizados:
-\begin{itemize}
-    \item \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos, que contém 5000 mil imagens de plantas residenciais da Finlândia.
-    \item \cite{yang2022automated}  utiliza o dataset R2V\cite{R2V_ICCV_2017} e  R3D\cite{R3D_2015_CVPR} e plantas de casa de Beike.% Site de casas www.ke.com Página 9 "EXPERIMENTS AND ANALYSIS" 
-    \item \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan" composto de 7000 imagens.
-    \item \cite{3dplanet2021} utiliza dataset próprio de 30 imagens.
-\end{itemize}
+%Diferentes autores utilizaram diferentes técnicas.
 
-O CubiCasa5K foi desenvolvido na Finlândia, então há anotações como banco de sauna, lareira, banheira, chaminé. %  'Sauna bench', 'Fire Place', 'Bathtub', 'Chimney'
-O Residential Floor Plan \cite{lv2021residential} foi desenvolvido na China, dando enfase na detecção de escala, região de interesse. 
-O \cite{R2V_ICCV_2017}
+%Diferentes autores utilizaram hardwares diferentes para fazer o treinamento.
+
+%Utilizando a divisão de \citeonline{kratochvila2024multi}, cada técnica cada autor é dividido em duas etapas: reconhecimento e reconstrução. Reconhecimento é onde ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é a criação do modelo 3D.
+
+\citeonline{kratochvila2024multi} desenvolveu dois algoritmos de segmentação CAB1 e CAB2, que utiliza \textit{Attention Mechanism} que é composto por \textit{Channel attention module} e \textit{Spatial attention module}. Na etapa de reconstrução vetorizou cada categoria de pixel segmentados e gerou o modelo 3D. Utilizou o 560 imagens escolhidas do dataset CubiCasa5K. \autoref{fig:kratochvila2024} mostra a visão geral do próprio autor.
+
+
+
+% colocar a figura do artigo
+
+\citeonline{3dplanet2021} utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. Utilizou a api do Tensorflow para a detecção de objetos: tipo de cômodo, portas e janelas. Utilizou 30 imagens escolhidas aleatoriamente providas do dataset de \citeonline{ijgi9020065} que contém 110,000 imagens.
+
+% colocar a figura do artigo
+
+\citeonline{lv2021residential}. Faz da detecção de área de interesse, texto e de simbolos (móveis, pias) YOLOv4 \cite{bochkovskiy2020yolov4}.
+Calcula o tamanho da escala do desenho, enquanto outros como o \cite{3dplanet2021} utilizada de um tamanho padrão.Utilizou dataset próprio \sigla{RPF}{Residential Floor Plan} com 7000 imagens de residencias chinesas. \autoref{fig:lv2021} mostra a visão geral do autor.
+
+\begin{figure}[H]
+\centering
+\caption{Arquiteturas de Kratochvila et al. (2024) e Lv et al. (2021)}
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/kratochvila2024multi_figure4.png}
+  \caption{Kratochvila et al. (2024)}
+  \label{fig:kratochvila2024}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/Lv_2021_figure2.png}
+  \caption{Lv et al. (2021)}
+  \label{fig:lv2021}
+\end{subfigure}
+\legend{Fonte: (a) \cite{kratochvila2024multi}, p. 5; (b) \cite{lv2021residential}, p. 16719.}
+\label{fig:comparacao_arquiteturas}
+\end{figure}
+
+\end
+
+% colocar a figura do artigo
+
+% O processamento da imagem gera alguns problemas sendo que antes foram solucionados por algoritmos heurísticos, mas atualmente as soluções usam técnicas de aprendizagem profunda \iffalse referênciar? \fi e essa mudança mostrou uma melhora na acurácia na detecção dos objetos \cite{3dplanet2021}.
+
+
+% Um dos problemas que isso gera é a necessidade da criação de datasets devidamente anotados para treinar os modelos de aprendizagem profundas.
+
+% \subsection{Datasets}
+% Aqui está uma lista com cada autor e o seus datasets que foram utilizados:
+% \begin{itemize}
+%     \item \cite{kratochvila2024multi} e \cite{barreiro2023automatic} utilizaram o dataset \cite{cubiCasa5K} nos seus experimentos, que contém 5000 mil imagens de plantas residenciais da Finlândia.
+%     \item \cite{yang2022automated}  utiliza o dataset R2V\cite{R2V_ICCV_2017} e  R3D\cite{R3D_2015_CVPR} e plantas de casa de Beike.% Site de casas www.ke.com Página 9 "EXPERIMENTS AND ANALYSIS" 
+%     \item \cite{lv2021residential} utiliza o próprio dataset "Residential Floor Plan" composto de 7000 imagens.
+%     \item \cite{3dplanet2021} utiliza dataset próprio de 30 imagens.
+% \end{itemize}
+% O CubiCasa5K foi desenvolvido na Finlândia, então há anotações como banco de sauna, lareira, banheira, chaminé. %  'Sauna bench', 'Fire Place', 'Bathtub', 'Chimney'
+% O Residential Floor Plan \cite{lv2021residential} foi desenvolvido na China, dando enfase na detecção de escala, região de interesse. 
+% O \cite{R2V_ICCV_2017}
 
 % Utilizar o resumo/conclusão de cada artigo, e discutir sobre os métodos e os achados e comentar sobre os artigos mostrando que ainda há algo a ser feito 
 
