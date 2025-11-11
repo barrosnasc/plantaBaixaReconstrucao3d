@@ -8,31 +8,31 @@
 % Qual é o tipo de problema
 % Utilizando o artigo do 3DPlanNet
 
-Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões, entre outros. Cada autor opta por dar ênfase a determinados desses aspectos. Seguindo a abordagem de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, a implementação é dividida em duas etapas: reconhecimento e reconstrução.
-Na etapa de reconhecimento ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é realizado o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
+Como já citado, o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nomes de cômodos, móveis e suas dimensões, entre outros. Cada autor opta por dar ênfase a determinados desses aspectos. Seguindo a abordagem de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, a implementação é dividida em duas etapas: reconhecimento e reconstrução.
+Na etapa de reconhecimento ocorre o processamento de imagem, gerando um modelo intermediário, e na reconstrução são realizados o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
 
-No reconhecimento há a detecção de paredes, portas e janelas, sendo criada uma rede de vértices e arestas das paredes \cite{3dplanet2021}. Dependendo do autor pode haver detecção dos outros tipos de objetos presentes na planta.
-Na reconstrução é feita o pós-processamento para reduzir erros, é então criado o modelo 3D usando tamanhos padrão para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
+No reconhecimento há a detecção de paredes, portas e janelas, sendo criada uma rede de vértices e arestas das paredes \cite{3dplanet2021}. Dependendo do autor, pode haver detecção dos outros tipos de objetos presentes na planta.
+Na reconstrução é feito o pós-processamento para reduzir erros e, em seguida, é criado o modelo 3D usando tamanhos padrão para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
 
 
 
 \section{Trabalhos Relacionados}
 
 \citeonline{kratochvila2024multi} desenvolveram dois algoritmos de segmentação, denominados CAB1 e CAB2, que utilizam um mecanismo de atenção \textit{(Attention Mechanism)} composto por CAM e SAM. Na etapa de reconstrução, cada categoria de pixel segmentada foi vetorizada, para, então gerar o modelo 3D. Foram utilizadas 560 imagens escolhidas do \textit{dataset} CubiCasa5K.
- A \autoref{fig:kratochvila2024} mostra a visão geral apresentada pelos autores .
+ A \autoref{fig:kratochvila2024} mostra a visão geral apresentada pelos autores.
 
 \citeonline{lv2021residential} realizaram a detecção de áreas de interesse, textos e símbolos (móveis, pias) utilizando YOLOv4 \cite{bochkovskiy2020yolov4}.
-O método calcula a escala do desenho, pixel por milímetro, enquanto outros como o \cite{3dplanet2021}, utilizaram um tamanho padrão.
+O método calcula a escala do desenho, pixel por milímetro, enquanto outros, como o de \cite{3dplanet2021}, utilizaram um tamanho padrão.
 Foi empregado um \textit{dataset} próprio com 7.000 imagens de residências chinesas.
 A \autoref{fig:lv2021} mostra a visão geral apresentada pelos autores.
 
-\citeonline{barreiro2023automatic} destacam a importância de focar apenas em paredes, portas e janelas, pois as anotações referentes ao tipo de cômodo são específicas de cada \textit{dataset} e dificulta a criação de uma técnica generalizada. 
-A sequência de etapas proposta envolve a detecção de símbolos para identificar portas e janelas, seguida da segmentação de paredes utilizando arquitetura \textit{FPN} com o \textit{backbone} \textit{ResNet} semelhante à \cite{lv2021residential}. 
+\citeonline{barreiro2023automatic} destacam a importância de focar apenas em paredes, portas e janelas, pois as anotações referentes ao tipo de cômodo são específicas de cada \textit{dataset} e dificultam a criação de uma técnica generalizada. 
+A sequência de etapas proposta envolve a detecção de símbolos para identificar portas e janelas, seguida da segmentação de paredes utilizando arquitetura \textit{FPN} com o \textit{backbone} \textit{ResNet}, semelhante à de \cite{lv2021residential}. 
 A \autoref{fig:barreiro2023automatic} mostra a visão geral apresentada pelos autores.
 
-\citeonline{3dplanet2021}, citados por \citeonline{kratochvila2024multi}, utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. 
+\citeonline{3dplanet2021}, citados por \citeonline{kratochvila2024multi}, utilizaram o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. 
 O método emprega a \textit{API} do \textit{Tensorflow} para a detecção de objetos: tipo de cômodo, portas e janelas. 
-Foram 30 imagens escolhidas aleatoriamente proveniente do \textit{dataset} de \citeonline{ijgi9020065}, que contém 110.000 imagens.
+Foram 30 imagens escolhidas aleatoriamente, provenientes do \textit{dataset} de \citeonline{ijgi9020065}, que contém 110.000 imagens.
 A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
 
 \begin{figure}[H]
@@ -57,11 +57,11 @@ A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
 
 \begin{figure}[H]
 \centering
-\caption{Arquiteturas de Barreiro et al., (2023), e Park; Kim, (2021)}
+\caption{Arquiteturas de Barreiro et al. (2023) e Park e Kim (2021)}
 \begin{subfigure}{0.47\textwidth}
   \centering
   \includegraphics[width=\linewidth]{imagens/barreiro2023automatic_figure1.png}
-  \caption{Da direita para esquerda, planta baixa, mascara segmentada, resultados vetorizados, modelo 3D }
+  \caption{Da direita para a esquerda, planta baixa, máscara segmentada, resultados vetorizados e modelo 3D}
   \label{fig:barreiro2023automatic}
 \end{subfigure}
 \hfill
@@ -75,8 +75,6 @@ A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
 \label{fig:arquiteturas2}
 \end{figure}
 
-
-\end
 
 % colocar a figura do artigo
 

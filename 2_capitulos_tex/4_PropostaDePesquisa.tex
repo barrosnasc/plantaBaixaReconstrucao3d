@@ -1,24 +1,24 @@
 \chapter{Proposta e Metodologia}\label{cp:metodologia}
 % Para a formulação dos procedimentos de pesquisa, retoma-se o objetivo proposto neste estudo:
 
-Este capítulo visa relatar o processo metodológico utilizado para desenvolvimento do estudo (\autoref{cp:intro:metodos}), o cronograma de tarefas (\autoref{cp:proposta:cronograma}) e os resultados que se espera obter ao fim do prazo de execução da monografia (\autoref{resultados}).
+Este capítulo descreve o processo metodológico utilizado para o desenvolvimento do estudo (\autoref{cp:intro:metodos}), o cronograma de tarefas (\autoref{cp:proposta:cronograma}) e os resultados que se espera obter ao fim do prazo de execução da monografia (\autoref{resultados}).
 
 \section{Método e Procedimentos de Pesquisa}\label{cp:intro:metodos}
 
-O projeto é treinar um modelo com base na literatura que faça a detecção de características das plantas baixas da cidade de Teresina com isso então criar um modelo 3D e exibir em um site comparando o resultado com a planta baixa original. 
+O projeto consiste em treinar um modelo, com base na literatura, que identifique características das plantas baixas da cidade de Teresina e, a partir delas, gere um modelo 3D exibido em um site para comparação com a planta original. 
 
-Com base nessas informações, do ponto de vista dos objetivos, esse estudo pode ser considerado uma pesquisa qualitativa. As etapas de desenvolvimento do projeto de pesquisa  são:
+Com base nessas informações, do ponto de vista dos objetivos, esse estudo pode ser considerado uma pesquisa qualitativa. As etapas de desenvolvimento do projeto de pesquisa são:
 
 \begin{enumerate}   
-  \item \textbf{Definição da arquitetura:} Selecionar a arquitetura com melhor compatibilidade os requisitos de hardware disponíveis e o resultado esperado.
-  \item \textbf{Treinamento do Modelo:} Realizar o treinamento do modelo com base nos datasets e parâmetros encontrados na literatura literatura.
-  \item \textbf{Coleta das plantas baixas:} Coletar as plantas baixas de Teresina digitalizadas. % Digitalizar as plantas baixas disponíveis de Teresina.
-  \item \textbf{Inferência do modelo:} Com o modelo treinado e com as plantas baixas coletas. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$   
-  \item \textbf{Reconstrução e exibição do modelo 3D:} Exibir o modelo 3D em um site utilizando uma biblioteca de renderização 3D\footnote{\textit{Three.js}: Biblioteca 3D em \textit{JavaScript} \url{https://threejs.org/}}, exibindo lado a lado a planta baixa original e a planta baixa processada.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
+  \item \textbf{Definição da arquitetura:} Selecionar a arquitetura com melhor compatibilidade com os requisitos de hardware disponíveis e com o resultado esperado.
+  \item \textbf{Treinamento do modelo:} Realizar o treinamento com base nos \textit{datasets} e parâmetros descritos na literatura.
+  \item \textbf{Coleta das plantas baixas:} Coletar as plantas baixas digitalizadas de Teresina. % Digitalizar as plantas baixas disponíveis de Teresina.
+  \item \textbf{Inferência do modelo:} Executar o modelo treinado sobre as plantas coletadas para gerar as predições. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$   
+  \item \textbf{Reconstrução e exibição do modelo 3D:} Exibir o modelo 3D em um site utilizando uma biblioteca de renderização 3D\footnote{\textit{Three.js}: Biblioteca 3D em \textit{JavaScript} \url{https://threejs.org/}}, exibindo lado a lado a planta baixa original e a planta processada.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
 \end{enumerate}
 
 \section{Cronograma de Pesquisa}\label{cp:proposta:cronograma}
-O \autoref{cronograma} apresenta o cronograma mensal de atividades necessárias para desenvolvimento da pesquisa proposta: 
+O \autoref{cronograma} apresenta o cronograma mensal de atividades necessárias para o desenvolvimento da pesquisa proposta: 
 
 % Criação de figura 
 
@@ -29,7 +29,7 @@ O \autoref{cronograma} apresenta o cronograma mensal de atividades necessárias 
     \hline
     & \multicolumn{4}{|c|}{2026} \\ \cline{2-5}
     \textbf{Atividades}&  Janeiro&  Fevereiro&  Março& Abril\\ \hline  
-    1. Revisão Bibliografica&  X&  X&  &  \\ \hline  
+    1. Revisão Bibliográfica&  X&  X&  &  \\ \hline  
     2. Definição da arquitetura&  X&  &  & \\ \hline  
     3. Coleta das plantas baixas&  X&  X&  & \\ \hline  
     4. Treinamento do modelo &  X&  X&  & \\ \hline  
