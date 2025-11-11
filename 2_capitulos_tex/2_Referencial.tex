@@ -8,23 +8,32 @@
 % Qual é o tipo de problema
 % Utilizando o artigo do 3DPlanNet
 
-Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões, entre outros, cada autor escolheu por ênfase em algum desses aspectos. Utilizando a divisão de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, cada técnica é dividido em duas etapas: reconhecimento e reconstrução, reconhecimento é onde ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é o pós-processamento e a criação do modelo 3D, com os elementos bases de paredes, portas e janelas.
+Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões, entre outros. Cada autor opta por dar ênfase a determinados desses aspectos. Seguindo a abordagem de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, a implementação é dividida em duas etapas: reconhecimento e reconstrução.
+Na etapa de reconhecimento é ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é realizado o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
 
-No reconhecimento há a detecção de paredes, portas e janelas, onde é criada uma rede de vértices e arestas das paredes, também pode haver detecção dos outros tipos de objetos, depente do autor.
-Na reconstrução é feita o pós-processamento para diminuir o erro, é então criado o modelo 3d usando tamanhos padrões para os objetos, como altura e largura da parede, caso a técnica tenha detectados objetos na etapa anterior serão adicionados no modelo 3d. Nenhum dos trabalhos citados tem o código fonte disponível.
+No reconhecimento há a detecção de paredes, portas e janelas, sendo criada uma rede de vértices e arestas das paredes \cite{3dplanet2021}. Dependendo do autor pode haver detecção dos outros tipos de objetos presentes na planta.
+Na reconstrução é feita o pós-processamento para reduzir erros, é então criado o modelo 3D usando tamanhos padrões para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
+
+
 
 \section{Trabalhos Relacionados}
 
-\citeonline{kratochvila2024multi} desenvolveu dois algoritmos de segmentação CAB1 e CAB2, que utiliza \textit{Attention Mechanism} composto por \textit{Channel attention module} e \textit{Spatial attention module}. Na etapa de reconstrução, vetorizou cada categoria de pixel segmentados e gerou o modelo 3D. Utilizou o 560 imagens escolhidas do dataset CubiCasa5K. \autoref{fig:kratochvila2024} mostra a visão geral do próprio autor.
+\citeonline{kratochvila2024multi} desenvolveram dois algoritmos de segmentação, denominados CAB1 e CAB2, que utilizam um mecanismo de atenção \textit{(Attention Mechanism)} composto por CAM e SAM. Na etapa de reconstrução, cada categoria de pixel segmentada foi vetorizada, para, então gerar o modelo 3D. Foram utilizadas 560 imagens escolhidas do \textit{dataset} CubiCasa5K.
+ A \autoref{fig:kratochvila2024} mostra a visão geral apresentada pelos autores .
 
-\citeonline{lv2021residential}. Faz da detecção de área de interesse, texto e de simbolos (móveis, pias) YOLOv4 \cite{bochkovskiy2020yolov4}.
-Calcula o tamanho da escala do desenho, pixel por mm , enquanto outros como o \cite{3dplanet2021} utilizada de um tamanho padrão.Utilizou dataset próprio %\sigla{RPF}{Residential Floor Plan}
- com 7000 imagens de residencias chinesas. \autoref{fig:lv2021} mostra a visão geral do autor.
+\citeonline{lv2021residential} realizaram a detecção de áreas de interesse, textos e símbolos (móveis, pias) utilizando YOLOv4 \cite{bochkovskiy2020yolov4}.
+O método calcula a escala do desenho, pixel por milímetro, enquanto outros como o \cite{3dplanet2021}, utilizaram um tamanho padrão.
+Foi empregado um \textit{dataset} próprio com 7.000 imagens de residências chinesas.
+A \autoref{fig:lv2021} mostra a visão geral apresentada pelos autores.
 
-\citeonline{barreiro2023automatic}.De acordo com o autor, focar somente em paredes, portas e janelas, pois as anotações do tipo de cômodo é muito específico de cada dataset e não pode ser generalizada. A sequência de ações é: detecção de simbolos para detectar portas e janelas, segmentação de paredes utilizando arquitetura FPN com o backbone ResNet similar ao \cite{lv2021residential}.
+\citeonline{barreiro2023automatic} destacam a importância de focar apenas em paredes, portas e janelas, pois as anotações referentes ao tipo de cômodo são específicas de cada \textit{dataset} e dificulta a criação de uma técnica generalizada. 
+A sequência de etapas proposta envolve a detecção de símbolos para identificar portas e janelas, seguida da segmentação de paredes utilizando arquitetura \textit{FPN} com o \textit{backbone} \textit{ResNet} semelhante à \cite{lv2021residential}. 
+A \autoref{fig:barreiro2023automatic} mostra a visão geral apresentada pelos autores.
 
-\citeonline{3dplanet2021}, citado por \citeonline{kratochvila2024multi}, utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. Utilizou a api do Tensorflow para a detecção de objetos: tipo de cômodo, portas e janelas. Utilizou 30 imagens escolhidas aleatoriamente providas do dataset de \citeonline{ijgi9020065} que contém 110,000 imagens.
-
+\citeonline{3dplanet2021}, citados por \citeonline{kratochvila2024multi}, utilizou o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. 
+O método emprega a \textit{API} do \textit{Tensorflow} para a detecção de objetos: tipo de cômodo, portas e janelas. 
+Foram 30 imagens escolhidas aleatoriamente proveniente do \textit{dataset} de \citeonline{ijgi9020065}, que contém 110.000 imagens.
+A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
 
 \begin{figure}[H]
 \centering
@@ -52,7 +61,7 @@ Calcula o tamanho da escala do desenho, pixel por mm , enquanto outros como o \c
 \begin{subfigure}{0.47\textwidth}
   \centering
   \includegraphics[width=\linewidth]{imagens/barreiro2023automatic_figure1.png}
-  \caption{Da direita para esquerda, planta baixa, mascara segmentada, resultados vetorizados, modelo 3d }
+  \caption{Da direita para esquerda, planta baixa, mascara segmentada, resultados vetorizados, modelo 3D }
   \label{fig:barreiro2023automatic}
 \end{subfigure}
 \hfill
@@ -81,4 +90,4 @@ Calcula o tamanho da escala do desenho, pixel por mm , enquanto outros como o \c
 % sugestão de tabelinha de como comparar as diferentes soluções ajuda consideravelmente no entendimento do trabalho
 
 \section{Considerações Finais}
-Os trabalhos analisados utilizam de técnicas de processamento de imagem e de reconstrução 3d, mas falta a disponibilização do código fonte e dos datasets utilizados, o que dificulta a sua reprodução.
+Os trabalhos analisados utilizam técnicas de processamento de imagem e reconstrução 3D, mas a indisponibilidade de código-fonte dificulta sua reprodução.
