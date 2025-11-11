@@ -9,10 +9,10 @@
 % Utilizando o artigo do 3DPlanNet
 
 Como já citado o desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões, entre outros. Cada autor opta por dar ênfase a determinados desses aspectos. Seguindo a abordagem de \citeonline{kratochvila2024multi} e \citeonline{lv2021residential}, a implementação é dividida em duas etapas: reconhecimento e reconstrução.
-Na etapa de reconhecimento é ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é realizado o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
+Na etapa de reconhecimento ocorre o processamento de imagem gerando um modelo intermediário, e na reconstrução é realizado o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
 
 No reconhecimento há a detecção de paredes, portas e janelas, sendo criada uma rede de vértices e arestas das paredes \cite{3dplanet2021}. Dependendo do autor pode haver detecção dos outros tipos de objetos presentes na planta.
-Na reconstrução é feita o pós-processamento para reduzir erros, é então criado o modelo 3D usando tamanhos padrões para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
+Na reconstrução é feita o pós-processamento para reduzir erros, é então criado o modelo 3D usando tamanhos padrão para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
 
 
 
