@@ -2,10 +2,12 @@
 Foi feito uma busca exploratoria utilizando a ferramenta Google Scholar para encontrar um artigo que fosse relevante ao tema e foi encontrado \cite{kratochvila2024multi}, com o conteúdo desse foi gerado e refinado a string de busca.
 
 \section{Busca Bibliográfica}\label{cp:refteory:figuras}
-A busca nas bibliotecas: arXiv e IEEExplore foi feita em Setembro de 2025, sobre os períodos de 2021 e 2025 e com strings de busca mostrado a seguir:
+A busca nas bibliotecas: arXiv e IEEE Xplore foi feita em setembro de 2025, abrangendo o período de 2021 a 2025, com as strings de busca mostrado a seguir:
    
 \subsection{arXiv}
-A bibloteca python https://pypi.org/project/arxiv/ , foi utilizada para fazer a busca no arXiv com a string de busca.
+A biblioteca Python \texttt{arxiv}~\cite{pypi_arxiv}, foi utilizada para realizar a busca no 
+repositório arXiv.
+
 
 String de Busca arXiv: 
 \begin{verbatim}
@@ -26,23 +28,24 @@ OR all:"multi-task" OR all:"multi-task learning"
     OR all:BIM OR all:robot OR all:navigation 
     OR all:"scene understanding" OR all:"depth estimation")')
 \end{verbatim}
-\subsection{IEEExplore}
-String de Busca IEEExplore:
+\subsection{IEEE Xplore}
+String de Busca IEEE Xplore:
 
-O site do IEEE Explore foi usado para fazer a a busca com a string de busca.
+O site do IEEE Xplore foi usado para fazer a a busca com a string de busca.
 \begin{verbatim}
 ("3D reconstruction" OR "3D modeling" OR "3D generation") 
 AND ("floor plan" OR "architectural plan") 
 AND ("deep learning" OR "semantic segmentation")
 \end{verbatim}
 
+%Artigos do IEEE Xplore que não tive acesso foram excluidos
+\section{Conclusão}
+
 \input{Tabelas/TabelaBuscaSistematica}
 
-%Artigos do IEEExplore que não tive acesso foram excluidos
+Os artigos selecionados foram: \citeonline{kratochvila2024multi} e \citeonline{barreiro2023automatic} do ArXiv e \citeonline{lv2021residential} do IEEE Xplore. 
 
-Os artigos selecionados foram: \citeonline{kratochvila2024multi} e \citeonline{barreiro2023automatic} do ArXiv e \citeonline{lv2021residential} do IEEEexplore. 
-
-Os outros artigos citados nesse projeto de pesquisa foram encontrados através das suas referências.
+Os outros artigos analisados foram encontrados a partir das referências dos artigos principais da busca.
 
 % precisa apontar para o parágrafo da fonte? E como que escreve isso LaTeX
 
@@ -64,4 +67,4 @@ Os outros artigos citados nesse projeto de pesquisa foram encontrados através d
 % Frameworks com abordagens diferentes com foco na promoção do engajamento e motivação do usuário.
 % Neste capítulo foram apresentados o protocolo de revisão e os trabalhos relacionados com os \nameref{cp:intro:obj} deste estudo. ....
 
-Na busca bibliográfica \cite{kratochvila2024multi} se tornou o artigo principal de referência, ele referência os demais artigos que encontrei na busca bibliográfica, com ele pode identificar os datasets e quais são as técnicas utilizados atualmente.
+Na busca bibliográfica \cite{kratochvila2024multi} se tornou-se o artigo principal de referência, pois cita e relaciona os demais artigos encontrados. A partir dele, foi possível identificar os \textit{datasets} e as técnicas predominantes aplicadas atualmente na reconstrução 3D a partir de plantas baixas..
