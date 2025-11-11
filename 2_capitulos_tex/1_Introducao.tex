@@ -28,35 +28,32 @@
 % Escrita
 % Premissa: Há uma necessidade de utilizar gerar modelos 3D a partir de plantas 2D
 
-O desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nome do cômodo, móveis, as suas dimensões,  entre outros% , e essas informações serão compreendidas pelo computador. 
-, essas características dão ao leitor os meios para poder reproduzir o que está no papel no mundo real nas construções ou em simulações. 
-A recuperação do modelo arquitetônico a partir de um planta baixa é uma necessidade que arquitetos e designers precisam para modificar e alterar o projeto \cite{lv2021residential}.
-Há também a necessidade da criação do modelo 3D para planejar rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
+O desenho arquitetônico contém vários tipos de objetos: paredes, portas, janelas, quartos, nomes de cômodos, móveis e suas dimensões, entre outros. 
+Essas características fornecem ao leitor os meios para reproduzir, no mundo real, o que está representado no papel, seja em construções ou em simulações. 
+A recuperação do modelo arquitetônico a partir de uma planta baixa é uma necessidade de arquitetos e designers que desejam modificar ou alterar um projeto \cite{lv2021residential}. Há também a necessidade de criação de modelos 3D para o planejamento de rotas de fuga e combate a incêndios \cite{kratochvila2024multi}.
 %, atualmente os projetos \iffalse achismo sem referencia \fi são feitos com o auxilio do computador conhecido como \sigla{CAD}{Computer Aided Design}.
 
-A transferência do desenho arquitetônico para a construção é algo estático e não pode ser alterado, gerando um problema se for necessário fazer uma reforma. % , onde não é mais possível utilizar a mesma planta baixa 
-É então necessário a utilização de um ambiente em que seja possível alterar a organização dos objetos na planta, e isso é possível no ambiente virtual \cite{lv2021residential}.
+A transferência do desenho arquitetônico para a construção é estática e não pode ser alterada, o que gera um problema caso seja necessário realizar uma reforma. Torna-se, portanto, necessária a utilização de um ambiente que permita alterar a organização dos objetos na planta, algo viável no ambiente virtual \cite{lv2021residential}.
 % transição de somente a extração de características do modelo 2D para um modelo CAD funcional para o modelo 3D, o que se ganha ao fazer esse tipo de transfomação?
-Na ausência de um modelo virtual do desenho arquitetônico poderá fazer a sua reconstrução, podendo ser manual ou através do processamento de imagem. 
-Nesse projeto será utilizará o processamento de imagem, que irá extrair os objetos e características para o ambiente virtual do documento digitalizado, depois será processado para gerar uma estrutura de dados que seja capaz de manipular, e depois será transformado em um modelo 3D \cite{yang2022automated}.
+Na ausência de um modelo virtual do desenho arquitetônico, é possível realizar sua reconstrução, seja manualmente, seja por meio do processamento de imagem. 
+Neste projeto, será utilizada a técnica de processamento de imagem, que extrai objetos e características do documento digitalizado, transfere-os para um ambiente virtual, processa-os para gerar uma estrutura de dados manipulável e, por fim, transforma-os em um modelo 3D \cite{yang2022automated}.
 
-As primeiras técnicas de processamento de imagem para extrair características de plantas baixas utilizava algoritmos heurísticos para poder extrair as informações da imagem. Com o avanço da ciência se percebeu que técnicas de aprendizagem profunda possuem um desempenho melhor \cite{lv2021residential}. Essas técnicas precisam de datasets para poder treinar o modelo de predição, como o CubiCasa5K \cite{cubiCasa5K} com 5 mil imagens e que foi feito utilizando plantas baixas residenciais da Finlândia.
+As primeiras técnicas de processamento de imagem para extração de características de plantas baixas utilizavam algoritmos heurísticos para obter informações das imagens. Com o avanço da ciência, observou-se que técnicas de aprendizado profundo apresentam desempenho superior \cite{lv2021residential}. Essas técnicas exigem \textit{datasets} para o treinamento dos modelos de predição, como o CubiCasa5K \cite{cubiCasa5K}, que contém 5 mil imagens de plantas baixas de residências da Finlândia.
 
 \section{Objetivos}\label{cp:intro:obj}
 Considerando a contextualização apresentada, nessa seção temos os objetivos gerais e específicos desse projeto de pesquisa.
 
 \subsection{Objetivo Geral}\label{cp:intro:objgeral}
-Desenvolver uma programa utilizando técnicas de processamento de imagem e detecção de simbolos que foram utilizadas no artigos nos artigos de referência para gerar uma estrutura de dados que depois será utilizada para gerar um modelo 3D. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
+Desenvolver um programa que utilize técnicas de processamento de imagem e detecção de símbolos aplicadas a plantas baixas, com base nas abordagens apresentadas nos artigos de referência, para gerar uma estrutura de dados que possibilite a criação de um modelo 3D. % das quais utilizando técnicas de baixo custo de hardware\cite{yang2022automated}.
 
 \subsection{Objetivos Específicos}\label{cp:intro:objespec}
 \begin{itemize}
-  \item Revisar a bibliografia.
-  % , para melhor entender as técnicas das referências, já que não está disponível o código fonte e com base na revisão recriar a arquitetura.\
-  \item Escolher a arquitetura a ser utilizada.
-  \item Treinar o modelo de acordo com os datasets da literatura. % Datasets como o CubiCasa5K.
-  \item Coletar das novas plantas baixas para serem processadas. % Digitalizar as plantas baixas disponíveis de Teresina.
-  \item Fazer a inferência do modelo com as plantas baixas e a gerar o modelo 3D. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$
-  \item Exibir o modelo 3D gerado.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
+  \item Revisar a bibliografia para compreender melhor as técnicas apresentadas nos artigos de referência e, com base nessa revisão, recriar a arquitetura utilizada.
+  \item Escolher a arquitetura a ser utilizada, escolhendo a com a melhor compatibilidade com o objetivo.
+  \item Treinar o modelo de acordo com os \textit{datasets} da literatura, como o CubiCasa5K.
+  \item Coletar plantas baixas, preferencialmente de Teresina, para serem processadas e utilizadas na validação do modelo. % Digitalizar as plantas baixas disponíveis de Teresina.
+  \item Fazer a inferência do modelo com as plantas baixas selecionadas. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$
+  \item Reconstruir e exibir o modelo 3D, para visualizar e comparar com a planta original.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
 \end{itemize}
 
 
