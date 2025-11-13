@@ -12,81 +12,20 @@ Como já citado, o desenho arquitetônico contém vários tipos de objetos: pare
 Na etapa de reconhecimento ocorre o processamento de imagem, gerando um modelo intermediário, e na reconstrução são realizados o pós-processamento e a criação do modelo 3D, com pelo menos os objetos de parede, porta e janela.
 
 No reconhecimento há a detecção de paredes, portas e janelas, sendo criada uma rede de vértices e arestas das paredes \cite{3dplanet2021}. Dependendo do autor, pode haver detecção dos outros tipos de objetos presentes na planta.
-Na reconstrução é feito o pós-processamento para reduzir erros e, em seguida, é criado o modelo 3D usando tamanhos padrão para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
+Na reconstrução é feito o pós-processamento para normalizar e, em seguida, é criado o modelo 3D usando tamanhos padrão para os objetos, como altura e largura da parede. Caso a técnica permita detectar outros elementos na etapa anterior, eles são adicionados ao modelo 3D.
 
 \section{Desenho Arquitetônico e Planta baixa}
-De acordo com NBR 6492
+De acordo com a ABNT NBR 6492:2021{\cite{nbr6492}, o desenho arquitetônico é composto por diversos elementos gráficos e simbólicos que representam a edificação, como paredes, portas, janelas, escadas, mobiliários e cotas (indicadores de tamanho). Esses elementos seguem convenções técnicas que padronizam escalas, espessuras de linha e simbologias, facilitando a interpretação e a comunicação entre profissionais da área. A norma utiliza o termo “planta”, enquanto o termo “planta baixa” é usado na prática.
 \section{Processamento de Imagem}
-É a área da ciência ... pegar do livro
-\subsection{Detecção de Simbolos}
+O processamento de imagens “considera a manipulação de imagens depois de capturadas por dispositivos imageadores” \cite[p.~4]{conci_computacao_2021_v2}, podendo envolver redução de ruído, realce e transformação de pixels. Essas técnicas são fundamentais como etapa inicial para extração de padrões e reconhecimento de estruturas em projetos arquitetônicos digitalizados.
+\subsection{Reconhecimento de Padrões}
+O reconhecimento de padrões exige que o algoritmo aprenda a distinguir classes visuais distintas a partir de exemplos previamente identificados. O livro explica que, na classificação supervisionada, emprega-se “um conjunto-padrão de objetos conhecidos pertencentes a diferentes classes” \cite[p.~206]{conci_computacao_2021_v2} e esse conjunto de dados justifica o uso dos \textit{datasets}.
 \subsection{Segmentação de Imagem}
-Pixels de uma textura que estão associados a uma informação
-\section{Algoritmos Heurísticos}
-Algoritmos tradicionais
-\section{Aprendizagem Profunda}
-Técnica de aproximação de funções dado dados suficientes
-\section{\textit{Datasets}}
-Dados anotados para utilizar, comparar e treinar diferente tipos de dados diferentes, importante para comparar algoritmos e técnicas diferentes como mostrado nos trabalhos a seguir é dado relevância ao \texit{dataset} do CubiCasa5K
-
-\section{Trabalhos Relacionados}
-
-\citeonline{kratochvila2024multi} desenvolveram dois algoritmos de segmentação, denominados CAB1 e CAB2, que utilizam um mecanismo de atenção \textit{(Attention Mechanism)} composto por CAM e SAM. Na etapa de reconstrução, cada categoria de pixel segmentada foi vetorizada, para, então gerar o modelo 3D. Foram utilizadas 560 imagens escolhidas do \textit{dataset} CubiCasa5K.
- A \autoref{fig:kratochvila2024} mostra a visão geral apresentada pelos autores.
-
-\citeonline{lv2021residential} realizaram a detecção de áreas de interesse, textos e símbolos (móveis, pias) utilizando YOLOv4 \cite{bochkovskiy2020yolov4}.
-O método calcula a escala do desenho, pixel por milímetro, enquanto outros, como o de \cite{3dplanet2021}, utilizaram um tamanho padrão.
-Foi empregado um \textit{dataset} próprio com 7.000 imagens de residências chinesas.
-A \autoref{fig:lv2021} mostra a visão geral apresentada pelos autores.
-
-\citeonline{barreiro2023automatic} destacam a importância de focar apenas em paredes, portas e janelas, pois as anotações referentes ao tipo de cômodo são específicas de cada \textit{dataset} e dificultam a criação de uma técnica generalizada. 
-A sequência de etapas proposta envolve a detecção de símbolos para identificar portas e janelas, seguida da segmentação de paredes utilizando arquitetura \textit{FPN} com o \textit{backbone} \textit{ResNet}, semelhante à de \cite{lv2021residential}. 
-A \autoref{fig:barreiro2023automatic} mostra a visão geral apresentada pelos autores.
-
-\citeonline{3dplanet2021}, citados por \citeonline{kratochvila2024multi}, utilizaram o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. 
-O método emprega a \textit{API} do \textit{Tensorflow} para a detecção de objetos: tipo de cômodo, portas e janelas. 
-Foram 30 imagens escolhidas aleatoriamente, provenientes do \textit{dataset} de \citeonline{ijgi9020065}, que contém 110.000 imagens.
-A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
-
-\begin{figure}[H]
-\centering
-\caption{Arquiteturas de Kratochvila et al. (2024) e Lv et al. (2021)}
-\begin{subfigure}{0.47\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{imagens/kratochvila2024multi_figure4.png}
-  \caption{Kratochvila et al. (2024)}
-  \label{fig:kratochvila2024}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.47\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{imagens/Lv_2021_figure2.png}
-  \caption{Lv et al. (2021)}
-  \label{fig:lv2021}
-\end{subfigure}
-\legend{Fonte: (a) \cite{kratochvila2024multi}, p. 5; (b) \cite{lv2021residential}, p. 16719.}
-\label{fig:arquiteturas1}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Arquiteturas de Barreiro et al. (2023) e Park e Kim (2021)}
-\begin{subfigure}{0.47\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{imagens/barreiro2023automatic_figure1.png}
-  \caption{Da direita para a esquerda, planta baixa, máscara segmentada, resultados vetorizados e modelo 3D}
-  \label{fig:barreiro2023automatic}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.47\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{imagens/3dplanet2021_figure1.png}
-  \caption{Lv et al. (2021)}
-  \label{fig:3dplanet2021}
-\end{subfigure}
-\legend{Fonte: (a) \cite{barreiro2023automatic}, p. 3; (b) \cite{3dplanet2021}, p. 3.}
-\label{fig:arquiteturas2}
-\end{figure}
-
+A segmentação de imagens consiste em dividir a imagem em regiões que possuam propriedades semelhantes, permitindo isolar partes relevantes para análise posterior. De acordo com o livro “a ideia geral em muitos dos métodos de segmentação é agrupar, de alguma forma, pixels ou grupos de pixels com mesma propriedade” \cite[p.~201]{conci_computacao_2021_v2}.
+ \section{\textit{Datasets}}
+Conjuntos de dados anotados são utilizados para o treinamento de algoritmos de detecção e segmentação, além de servirem como base comparativa entre diferentes técnicas. Essa comparação é empregada para verificar quantitativamente a eficiência e qualidade desses algoritmos.
+% \section{Trabalhos Relacionados}
+% \cite{Goncalves2019}, utilizou de algoritmos heurísticos para gerar um modelo 3D a partir de desenhos manuais, levou o  
 
 % colocar a figura do artigo
 
@@ -100,4 +39,4 @@ A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
 % sugestão de tabelinha de como comparar as diferentes soluções ajuda consideravelmente no entendimento do trabalho
 
 \section{Considerações Finais}
-Os trabalhos analisados utilizam técnicas de processamento de imagem e reconstrução 3D, mas a indisponibilidade de código-fonte dificulta sua reprodução.
+Este capítulo apresentou os principais conceitos que fundamentam o desenvolvimento da proposta: os elementos do desenho arquitetônico, o uso de técnicas de processamento de imagem, reconhecimento de padrões, segmentação, e a importância dos datasets anotados.

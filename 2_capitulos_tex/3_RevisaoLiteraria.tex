@@ -10,7 +10,7 @@ repositório arXiv.
 
 
 String de busca no arXiv: 
-\begin{verbatim}
+\footnotesize\begin{verbatim}
 ('(all:"floor plan" OR all:floorplan OR all:floorplans 
     OR all:"architectural layout" OR all:"building layout") ' 
 'AND (all:"3D reconstruction" OR all:"3D model" 
@@ -28,15 +28,17 @@ OR all:"multi-task" OR all:"multi-task learning"
     OR all:BIM OR all:robot OR all:navigation 
     OR all:"scene understanding" OR all:"depth estimation")')
 \end{verbatim}
+\normalsize
 \subsection{IEEE Xplore}
 String de busca no IEEE Xplore:
 
 O site do IEEE Xplore foi usado para realizar a busca com a string:
-\begin{verbatim}
+\footnotesize\begin{verbatim}
 ("3D reconstruction" OR "3D modeling" OR "3D generation") 
 AND ("floor plan" OR "architectural plan") 
 AND ("deep learning" OR "semantic segmentation")
 \end{verbatim}
+\normalsize
 
 %Artigos do IEEE Xplore que não tive acesso foram excluidos
 \section{Síntese dos Resultados da Busca}
@@ -45,9 +47,78 @@ O quadro a seguir apresenta o quantitativo de resultados obtidos e filtrados dur
 
 \input{Tabelas/TabelaBuscaSistematica}
 
+
 Os artigos selecionados foram: \citeonline{kratochvila2024multi} e \citeonline{barreiro2023automatic} do ArXiv e \citeonline{lv2021residential} do IEEE Xplore. 
 
-Os outros artigos analisados foram encontrados a partir das referências dos artigos principais da busca.
+O artigo \citeonline{3dplanet2021} foi encontrado pelas referências de \citeonline{kratochvila2024multi} e \citeonline{barreiro2023automatic}.
+
+\section{Análise dos Artigos}
+
+\citeonline{kratochvila2024multi} desenvolveram dois algoritmos de segmentação, denominados CAB1 e CAB2, que utilizam um mecanismo de atenção \textit{(Attention Mechanism)} composto por CAM e SAM. Na etapa de reconstrução, cada categoria de pixel segmentada foi vetorizada, para, então gerar o modelo 3D. Foram utilizadas 560 imagens escolhidas do \textit{dataset} CubiCasa5K.
+ A \autoref{fig:kratochvila2024} mostra a visão geral apresentada pelos autores.
+
+\citeonline{lv2021residential} realizaram a detecção de áreas de interesse, textos e símbolos (móveis, pias) utilizando YOLOv4 \cite{bochkovskiy2020yolov4}.
+O método calcula a escala do desenho, pixel por milímetro, enquanto outros, como o de \cite{3dplanet2021}, utilizaram um tamanho padrão.
+Foi empregado um \textit{dataset} próprio com 7.000 imagens de residências chinesas.
+A \autoref{fig:lv2021} mostra a visão geral apresentada pelos autores.
+
+\citeonline{barreiro2023automatic} destacam a importância de focar apenas em paredes, portas e janelas, pois as anotações referentes ao tipo de cômodo são específicas de cada \textit{dataset} e dificultam a criação de uma técnica generalizada. 
+A sequência de etapas proposta envolve a detecção de símbolos para identificar portas e janelas, seguida da segmentação de paredes utilizando arquitetura \textit{FPN} com o \textit{backbone} \textit{ResNet}, semelhante à de \cite{lv2021residential}.
+A \autoref{fig:barreiro2023automatic} mostra a visão geral apresentada pelos autores.
+
+\citeonline{3dplanet2021}, citados por \citeonline{kratochvila2024multi}, utilizaram o algoritmo de \cite{ijgi9020065} para detectar o centro das paredes. 
+O método emprega a \textit{API} do \textit{Tensorflow} para a detecção de objetos: tipo de cômodo, portas e janelas. 
+Foram 30 imagens escolhidas aleatoriamente, provenientes do \textit{dataset} de \citeonline{ijgi9020065}, que contém 110.000 imagens.
+A \autoref{fig:3dplanet2021} mostra a visão geral apresentada pelos autores.
+
+\begin{figure}[H]
+\centering
+\caption{Arquiteturas de Kratochvila et al. (2024) e Lv et al. (2021)}
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/kratochvila2024multi_figure4.png}
+  \caption{Kratochvila et al. (2024)}
+  \label{fig:kratochvila2024}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/Lv_2021_figure2.png}
+  \caption{Lv et al. (2021)}
+  \label{fig:lv2021}
+\end{subfigure}
+\legend{Fonte: (a) \cite{kratochvila2024multi}, p. 5; (b) \cite{lv2021residential}, p. 16719.}
+\label{fig:arquiteturas1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Arquiteturas de Barreiro et al. (2023) e Park e Kim (2021)}
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/barreiro2023automatic_figure1.png}
+  \caption{Da direita para a esquerda, planta baixa, máscara segmentada, resultados vetorizados e modelo 3D}
+  \label{fig:barreiro2023automatic}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{imagens/3dplanet2021_figure1.png}
+  \caption{Lv et al. (2021)}
+  \label{fig:3dplanet2021}
+\end{subfigure}
+\legend{Fonte: (a) \cite{barreiro2023automatic}, p. 3; (b) \cite{3dplanet2021}, p. 3.}
+\label{fig:arquiteturas2}
+\end{figure}
+
+\section{Hardware dos Artigos}
+A \autoref{tab:hardware-artigos} apresenta um resumo do hardware utilizado nos artigos analisados.
+Essa informação é importante para avaliar a viabilidade de reprodução dos métodos descritos na literatura, considerando as limitações e capacidades do hardware disponível para este projeto.
+
+\input{Tabelas/Hardware.tex}
+
+
+
 
 % precisa apontar para o parágrafo da fonte? E como que escreve isso LaTeX
 
@@ -69,4 +140,4 @@ Os outros artigos analisados foram encontrados a partir das referências dos art
 % Frameworks com abordagens diferentes com foco na promoção do engajamento e motivação do usuário.
 % Neste capítulo foram apresentados o protocolo de revisão e os trabalhos relacionados com os \nameref{cp:intro:obj} deste estudo. ....
 
-Na busca bibliográfica, \cite{kratochvila2024multi} tornou-se o artigo principal de referência, pois cita e relaciona os demais trabalhos encontrados. A partir dele, foi possível identificar os \textit{datasets} e as técnicas predominantes aplicadas atualmente na reconstrução 3D a partir de plantas baixas.
+Na busca bibliográfica, \cite{kratochvila2024multi} tornou-se o artigo principal de referência, pois cita e relaciona os demais trabalhos encontrados. A partir dele, foi possível identificar os \textit{datasets} e as técnicas predominantes aplicadas atualmente na reconstrução 3D a partir de plantas baixas. Observou-se também que os trabalhos analisados não disponibilizaram o código-fonte, o que dificulta a reprodutibilidade e a comparação direta entre abordagens.

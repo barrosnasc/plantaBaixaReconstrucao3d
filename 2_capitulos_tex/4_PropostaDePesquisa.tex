@@ -5,14 +5,14 @@ Este capítulo descreve o processo metodológico utilizado para o desenvolviment
 
 \section{Método e Procedimentos de Pesquisa}\label{cp:intro:metodos}
 
-O projeto consiste em treinar um modelo, com base na literatura, que identifique características das plantas baixas da cidade de Teresina e, a partir delas, gere um modelo 3D exibido em um site para comparação com a planta original. 
+Este projeto tem como objetivo treinar um modelo computacional, fundamentado na literatura da área, capaz de identificar características presentes em plantas baixas da cidade de Teresina e, com base nessas informações, gerar automaticamente um modelo tridimensional. O resultado será exibido em um ambiente web, permitindo a comparação visual entre a planta original e sua reconstrução 3D.
 
 Com base nessas informações, do ponto de vista dos objetivos, esse estudo pode ser considerado uma pesquisa qualitativa. As etapas de desenvolvimento do projeto de pesquisa são:
 
 \begin{enumerate}   
   \item \textbf{Definição da arquitetura:} Selecionar a arquitetura com melhor compatibilidade com os requisitos de hardware disponíveis e com o resultado esperado.
-  \item \textbf{Treinamento do modelo:} Realizar o treinamento com base nos \textit{datasets} e parâmetros descritos na literatura.
   \item \textbf{Coleta das plantas baixas:} Coletar as plantas baixas digitalizadas de Teresina. % Digitalizar as plantas baixas disponíveis de Teresina.
+  \item \textbf{Treinamento do modelo:} Realizar o treinamento com base nos \textit{datasets} e parâmetros descritos na literatura.
   \item \textbf{Inferência do modelo:} Executar o modelo treinado sobre as plantas coletadas para gerar as predições. % Executar o modelo e exportar para um formato de arquivo 3D: $.obj$ ou $.gltf$   
   \item \textbf{Reconstrução e exibição do modelo 3D:} Exibir o modelo 3D em um site utilizando uma biblioteca de renderização 3D\footnote{\textit{Three.js}: Biblioteca 3D em \textit{JavaScript} \url{https://threejs.org/}}, exibindo lado a lado a planta baixa original e a planta processada.%  Utilizando o framework ThreeJS \iffalse baseado em qual artigo que a escolhar do ThreeJS é valida? os artigos utilizam alguma forma de exibição mas não disseram qual e como especificamente \fi exibindo o desenho 3D, no navegador com o controle de órbita e $panning$.
 \end{enumerate}
@@ -33,9 +33,10 @@ O \autoref{cronograma} apresenta o cronograma mensal de atividades necessárias 
     2. Definição da arquitetura&  X&  &  & \\ \hline  
     3. Coleta das plantas baixas&  X&  X&  & \\ \hline  
     4. Treinamento do modelo &  X&  X&  & \\ \hline  
-    5. Reconstrução e exibição do modelo 3D&  X&  X&  X& \\ \hline  
-    6. Escrita&  &  X&  X& X\\ \hline  
-    7. Defesa&  &  &  & X\\ \hline      
+    5. Inferência do modelo &  &  & X& \\ \hline  
+    6. Reconstrução e exibição do modelo 3D&  X&  X&  X& \\ \hline  
+    7. Escrita&  &  X&  X& X\\ \hline  
+    8. Defesa&  &  &  & X\\ \hline      
     \end{tabular}
 
     \vspace{1cm}    
@@ -43,6 +44,4 @@ O \autoref{cronograma} apresenta o cronograma mensal de atividades necessárias 
 
 \section{Resultados Esperados}\label{resultados}
 
-Espera-se, ao final do desenvolvimento deste projeto, obter um modelo treinado capaz de realizar a detecção automática das características presentes em plantas baixas, aplicando técnicas de processamento de imagem e aprendizado profundo descritas na literatura.  
-
-O sistema deverá ser capaz de processar plantas digitalizadas da cidade de Teresina e, a partir dos resultados da inferência, gerar um modelo tridimensional correspondente. Essa reconstrução 3D será exibida em um ambiente web desenvolvido, com uma visualização comparativa entre a planta original e a planta processada.  
+Espera-se, ao final do desenvolvimento deste projeto, a criação de um sistema com um modelo treinado capaz de realizar a detecção automática das características presentes em plantas baixas digitalizadas da cidade de Teresina. A partir dos resultados da inferência, o sistema deverá gerar um modelo tridimensional correspondente e exibi-lo em um ambiente web desenvolvido, permitindo uma visualização comparativa entre a planta original e a planta processada.
