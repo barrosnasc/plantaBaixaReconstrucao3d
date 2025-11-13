@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance=3cm]
+\tikzstyle{box} = [rectangle, draw, rounded corners,
+                   text width=3cm, align=center,
+                   minimum height=1cm, fill=gray!20]
+
+\node[box] (revisao) {Revisão Bibliográfica};
+\node[box, below of=revisao,yshift=1.5cm] (arquitetura) {Definição da Arquitetura};
+\node[box, left of=inferencia, xshift=-0.8cm, yshift = -4.5cm] (coleta) {Coleta das Plantas Baixas de Teresina};
+\node[box, below of=arquitetura, yshift = 1.5cm] (treinamento) {Treinamento do Modelo};
+\node[box, below of=arquitetura] (inferencia) {Inferência do Modelo};
+\node[box, below of=inferencia, text width =8cm, yshift=1cm] (exibicao) {Reconstrução e Exibição do Modelo 3D};
+
+\draw[->,thick] (revisao) -- (arquitetura);
+\draw[->] (arquitetura) -- (treinamento);
+% \draw[->] (arquitetura) -- (coleta);
+\draw[->,thick] (coleta) -- (inferencia);
+\draw[->] (treinamento) -- (inferencia);
+\draw[->] (inferencia) -- (exibicao);
+
+\end{tikzpicture}   
